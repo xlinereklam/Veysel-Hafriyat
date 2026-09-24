@@ -1,0 +1,1359 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<meta name="theme-color" content="#111315">
+
+<meta name="description"
+      content="Veysel Hafriyat - Bağ düzenleme, bahçe düzenleme, çapa işleri, bina yıkımı, kazı ve hafriyat hizmetleri.">
+
+<title>Veysel Hafriyat | Veysel Aykul & Musa Aykul</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Allura&display=swap" rel="stylesheet">
+
+<style>
+
+:root {
+    --bg: #101214;
+    --bg-light: #171a1d;
+    --card: #1d2124;
+    --card-hover: #252a2e;
+    --yellow: #e6a82e;
+    --yellow-light: #ffc857;
+    --text: #ffffff;
+    --muted: #aeb4b9;
+    --border: rgba(255,255,255,.08);
+    --green: #25d366;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background:
+        radial-gradient(circle at top, rgba(230,168,46,.09), transparent 32%),
+        var(--bg);
+
+    color: var(--text);
+    font-family: "Inter", sans-serif;
+
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* =========================================
+   INTRO
+========================================= */
+
+#intro {
+    position: fixed;
+    inset: 0;
+
+    background:
+        radial-gradient(circle at center, rgba(230,168,46,.12), transparent 38%),
+        #0c0e0f;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 9999;
+
+    animation: introOut .8s ease 3s forwards;
+}
+
+.intro-content {
+    text-align: center;
+    padding: 30px;
+}
+
+.intro-logo {
+    width: 145px;
+    height: 145px;
+
+    object-fit: contain;
+
+    margin-bottom: 22px;
+
+    animation: logoIn 1s ease forwards;
+}
+
+.intro-title {
+    color: var(--yellow-light);
+
+    font-size: 34px;
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+    opacity: 0;
+    animation: fadeUp .8s ease .45s forwards;
+}
+
+.intro-name {
+    font-family: "Allura", cursive;
+
+    font-size: 39px;
+
+    color: #fff;
+
+    margin-top: 8px;
+
+    opacity: 0;
+
+    animation: fadeUp .8s ease .8s forwards;
+}
+
+.intro-name.second {
+    font-size: 34px;
+    color: #d6d8da;
+
+    animation-delay: 1.1s;
+}
+
+.intro-line {
+    width: 0;
+    height: 2px;
+
+    background: var(--yellow);
+
+    margin: 22px auto 0;
+
+    animation: lineIn .8s ease 1.3s forwards;
+}
+
+@keyframes logoIn {
+    from {
+        opacity: 0;
+        transform: scale(.65);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes lineIn {
+    to {
+        width: 100px;
+    }
+}
+
+@keyframes introOut {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+/* =========================================
+   MAIN
+========================================= */
+
+.container {
+    width: min(100%, 540px);
+    margin: auto;
+
+    padding: 24px 17px 40px;
+}
+
+/* =========================================
+   HEADER
+========================================= */
+
+.header {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.main-logo {
+    width: 125px;
+    height: 125px;
+
+    object-fit: contain;
+
+    margin-bottom: 12px;
+
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,.3));
+}
+
+.header h1 {
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: .4px;
+}
+
+.header p {
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+/* =========================================
+   SLIDER
+========================================= */
+
+.slider {
+    width: 100%;
+    height: 245px;
+
+    border-radius: 22px;
+
+    overflow: hidden;
+
+    position: relative;
+
+    background: #1a1d1f;
+
+    box-shadow:
+        0 20px 45px rgba(0,0,0,.3),
+        inset 0 0 0 1px var(--border);
+}
+
+.slides {
+    display: flex;
+    width: 500%;
+    height: 100%;
+
+    animation: slide 20s infinite;
+}
+
+.slide {
+    width: 20%;
+    height: 100%;
+
+    position: relative;
+    flex-shrink: 0;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+.slide::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(0,0,0,.65),
+            transparent 55%
+        );
+}
+
+@keyframes slide {
+
+    0%, 16% {
+        transform: translateX(0);
+    }
+
+    20%, 36% {
+        transform: translateX(-20%);
+    }
+
+    40%, 56% {
+        transform: translateX(-40%);
+    }
+
+    60%, 76% {
+        transform: translateX(-60%);
+    }
+
+    80%, 96% {
+        transform: translateX(-80%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* =========================================
+   SECTION TITLE
+========================================= */
+
+.section-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    margin: 30px 0 14px;
+
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.section-title::before {
+    content: "";
+
+    width: 5px;
+    height: 21px;
+
+    background: var(--yellow);
+
+    border-radius: 10px;
+}
+
+/* =========================================
+   SERVICES
+========================================= */
+
+.services {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 10px;
+}
+
+.service {
+    position: relative;
+
+    min-height: 88px;
+
+    padding: 18px 14px;
+
+    border-radius: 16px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.055),
+            rgba(255,255,255,.015)
+        );
+
+    border: 1px solid var(--border);
+
+    display: flex;
+    align-items: center;
+
+    overflow: hidden;
+
+    transition: .25s ease;
+}
+
+.service::before {
+    content: "";
+
+    position: absolute;
+
+    width: 55px;
+    height: 55px;
+
+    right: -18px;
+    bottom: -18px;
+
+    border-radius: 50%;
+
+    background: rgba(230,168,46,.09);
+}
+
+.service:hover {
+    transform: translateY(-2px);
+    background: var(--card-hover);
+    border-color: rgba(230,168,46,.35);
+}
+
+.service-number {
+    color: var(--yellow);
+
+    font-size: 11px;
+    font-weight: 800;
+
+    margin-right: 10px;
+}
+
+.service-name {
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.35;
+}
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+.action {
+    width: 100%;
+
+    min-height: 58px;
+
+    border-radius: 15px;
+
+    border: 1px solid var(--border);
+
+    background: var(--card);
+
+    color: white;
+
+    text-decoration: none;
+
+    display: flex;
+    align-items: center;
+
+    padding: 12px 15px;
+
+    transition: .25s ease;
+
+    cursor: pointer;
+}
+
+.action:hover {
+    transform: translateY(-2px);
+    background: var(--card-hover);
+    border-color: rgba(230,168,46,.35);
+}
+
+.action-icon {
+    width: 40px;
+    height: 40px;
+
+    border-radius: 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(230,168,46,.12);
+
+    color: var(--yellow-light);
+
+    font-size: 18px;
+
+    margin-right: 13px;
+
+    flex-shrink: 0;
+}
+
+.action-content {
+    display: flex;
+    flex-direction: column;
+
+    text-align: left;
+}
+
+.action-label {
+    font-size: 10px;
+
+    color: var(--muted);
+
+    text-transform: uppercase;
+
+    letter-spacing: .6px;
+}
+
+.action-title {
+    font-size: 14px;
+    font-weight: 700;
+
+    margin-top: 2px;
+}
+
+.whatsapp .action-icon {
+    background: rgba(37,211,102,.12);
+    color: var(--green);
+}
+
+.instagram .action-icon {
+    background: rgba(225,48,108,.12);
+    color: #ff5b9a;
+}
+
+.tiktok .action-icon {
+    background: rgba(255,255,255,.08);
+    color: white;
+}
+
+/* =========================================
+   IBAN
+========================================= */
+
+.iban-box {
+    margin-top: 10px;
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 16px;
+
+    padding: 17px;
+}
+
+.iban-label {
+    font-size: 10px;
+
+    color: var(--muted);
+
+    text-transform: uppercase;
+
+    letter-spacing: .7px;
+
+    margin-bottom: 8px;
+}
+
+.iban {
+    font-size: 14px;
+
+    font-weight: 700;
+
+    letter-spacing: .5px;
+
+    word-break: break-all;
+
+    color: var(--yellow-light);
+}
+
+.copy-btn {
+    margin-top: 12px;
+
+    width: 100%;
+
+    height: 40px;
+
+    border: 0;
+
+    border-radius: 10px;
+
+    background: rgba(230,168,46,.12);
+
+    color: var(--yellow-light);
+
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.footer {
+    text-align: center;
+
+    color: #737a80;
+
+    font-size: 11px;
+
+    margin-top: 32px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid var(--border);
+}
+
+.footer strong {
+    color: #a5abb0;
+}
+
+/* =========================================
+   TOAST
+========================================= */
+
+.toast {
+    position: fixed;
+
+    left: 50%;
+    bottom: 25px;
+
+    transform: translateX(-50%) translateY(30px);
+
+    background: #fff;
+    color: #111;
+
+    padding: 12px 18px;
+
+    border-radius: 12px;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: .3s ease;
+
+    z-index: 10000;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,.3);
+}
+
+.toast.show {
+    opacity: 1;
+    visibility: visible;
+
+    transform: translateX(-50%) translateY(0);
+}
+
+/* =========================================
+   DESKTOP
+========================================= */
+
+@media (min-width: 700px) {
+
+    body {
+        padding: 30px 0;
+    }
+
+    .container {
+        background: rgba(255,255,255,.015);
+
+        border: 1px solid var(--border);
+
+        border-radius: 30px;
+
+        padding: 35px 30px 45px;
+
+        box-shadow: 0 30px 80px rgba(0,0,0,.35);
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- =========================================
+     3 SANİYELİK INTRO
+========================================= -->
+
+<div id="intro">
+
+    <div class="intro-content">
+
+        <img
+            src="assets/logo.png"
+            class="intro-logo"
+            alt="Veysel Hafriyat Logo"
+        >
+
+        <div class="intro-title">
+            VEYSEL HAFRİYAT
+        </div>
+
+        <div class="intro-name">
+            Veysel Aykul
+        </div>
+
+        <div class="intro-name second">
+            Musa Aykul
+        </div>
+
+        <div class="intro-line"></div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================
+     ANA SAYFA
+========================================= -->
+
+<main class="container">
+
+    <!-- HEADER -->
+
+    <header class="header">
+
+        <img
+            src="assets/logo.png"
+            class="main-logo"
+            alt="Veysel Hafriyat"
+        >
+
+        <h1>Veysel Hafriyat</h1>
+
+        <p>
+            Profesyonel Hafriyat & Arazi Düzenleme
+        </p>
+
+    </header>
+
+
+    <!-- FOTOĞRAF SLAYT -->
+
+    <div class="slider">
+
+        <div class="slides">
+
+            <div class="slide">
+                <img src="assets/1.jpg" alt="Veysel Hafriyat">
+            </div>
+
+            <div class="slide">
+                <img src="assets/2.jpg" alt="Hafriyat Hizmetleri">
+            </div>
+
+            <div class="slide">
+                <img src="assets/3.jpg" alt="Arazi Düzenleme">
+            </div>
+
+            <div class="slide">
+                <img src="assets/4.jpg" alt="Hafriyat Çalışması">
+            </div>
+
+            <div class="slide">
+                <img src="assets/5.jpg" alt="Veysel Hafriyat">
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- HİZMETLER -->
+
+    <div class="section-title">
+        Hizmetlerimiz
+    </div>
+
+
+    <div class="services">
+
+        <div class="service">
+            <span class="service-number">01</span>
+            <span class="service-name">
+                Bağ Düzenleme
+            </span>
+        </div>
+
+        <div class="service">
+            <span class="service-number">02</span>
+            <span class="service-name">
+                Bahçe Düzenleme
+            </span>
+        </div>
+
+        <div class="service">
+            <span class="service-number">03</span>
+            <span class="service-name">
+                Çapa İşleri
+            </span>
+        </div>
+
+        <div class="service">
+            <span class="service-number">04</span>
+            <span class="service-name">
+                Bina Yıkımı
+            </span>
+        </div>
+
+        <div class="service">
+            <span class="service-number">05</span>
+            <span class="service-name">
+                Muz Bahçesi Düzenleme
+            </span>
+        </div>
+
+        <div class="service">
+            <span class="service-number">06</span>
+            <span class="service-name">
+                Kazı
+            </span>
+        </div>
+
+        <div class="service">
+            <span class="service-number">07</span>
+            <span class="service-name">
+                Mini Makinelik Hafriyat İşleri
+            </span>
+        </div>
+
+    </div>
+
+
+    <!-- İLETİŞİM -->
+
+    <div class="section-title">
+        İletişim
+    </div>
+
+
+    <div class="buttons">
+
+        <!-- VEYSEL ARA -->
+
+        <a
+            href="tel:+905355795078"
+            class="action"
+        >
+
+            <div class="action-icon">
+                ☎
+            </div>
+
+            <div class="action-content">
+
+                <span class="action-label">
+                    Hemen Ara
+                </span>
+
+                <span class="action-title">
+                    Veysel Aykul · 0535 579 50 78
+                </span>
+
+            </div>
+
+        </a>
+
+
+        <!-- MUSA ARA -->
+
+        <a
+            href="tel:+905365916785"
+            class="action"
+        >
+
+            <div class="action-icon">
+                ☎
+            </div>
+
+            <div class="action-content">
+
+                <span class="action-label">
+                    Hemen Ara
+                </span>
+
+                <span class="action-title">
+                    Musa Aykul · 0536 591 67 85
+                </span>
+
+            </div>
+
+        </a>
+
+
+        <!-- VEYSEL REHBER -->
+
+        <button
+            class="action"
+            onclick="downloadVCard('veysel')"
+        >
+
+            <div class="action-icon">
+                +
+            </div>
+
+            <div class="action-content">
+
+                <span class="action-label">
+                    Rehbere Kaydet
+                </span>
+
+                <span class="action-title">
+                    Veysel Aykul
+                </span>
+
+            </div>
+
+        </button>
+
+
+        <!-- MUSA REHBER -->
+
+        <button
+            class="action"
+            onclick="downloadVCard('musa')"
+        >
+
+            <div class="action-icon">
+                +
+            </div>
+
+            <div class="action-content">
+
+                <span class="action-label">
+                    Rehbere Kaydet
+                </span>
+
+                <span class="action-title">
+                    Musa Aykul
+                </span>
+
+            </div>
+
+        </button>
+
+
+        <!-- VEYSEL WHATSAPP -->
+
+        <a
+            href="https://wa.me/905355795078"
+            target="_blank"
+            class="action whatsapp"
+        >
+
+            <div class="action-icon">
+                ✓
+            </div>
+
+            <div class="action-content">
+
+                <span class="action-label">
+                    WhatsApp
+                </span>
+
+                <span class="action-title">
+                    Veysel Aykul
+                </span>
+
+            </div>
+
+        </a>
+
+
+        <!-- MUSA WHATSAPP -->
+
+        <a
+            href="https://wa.me/905365916785"
+            target="_blank"
+            class="action whatsapp"
+        >
+
+            <div class="action-icon">
+                ✓
+            </div>
+
+            <div class="action-content">
+
+                <span class="action-label">
+                    WhatsApp
+                </span>
+
+                <span class="action-title">
+                    Musa Aykul
+                </span>
+
+            </div>
+
+        </a>
+
+
+        <!-- INSTAGRAM -->
+
+        <a
+            href="https://www.instagram.com/musa_aykl?stkn=bmptY2xxYTI3bGpy&utm_source=qr"
+            target="_blank"
+            class="action instagram"
+        >
+
+            <div class="action-icon">
+                ◎
+            </div>
+
+            <div class="action-content">
+
+                <span class="action-label">
+                    Instagram
+                </span>
+
+                <span class="action-title">
+                    @musa_aykl
+                </span>
+
+            </div>
+
+        </a>
+
+
+        <!-- TIKTOK -->
+
+        <a
+            href="https://www.tiktok.com/@musa_aykul?_r=1&_t=ZS-9A0PC7s9OWf"
+            target="_blank"
+            class="action tiktok"
+        >
+
+            <div class="action-icon">
+                ♪
+            </div>
+
+            <div class="action-content">
+
+                <span class="action-label">
+                    TikTok
+                </span>
+
+                <span class="action-title">
+                    @musa_aykul
+                </span>
+
+            </div>
+
+        </a>
+
+    </div>
+
+
+    <!-- IBAN -->
+
+    <div class="section-title">
+        IBAN Bilgileri
+    </div>
+
+
+    <div class="iban-box">
+
+        <div class="iban-label">
+            IBAN Numarası
+        </div>
+
+        <div class="iban" id="iban">
+            TR44 0001 0090 1076 4335 4050 01
+        </div>
+
+        <button
+            class="copy-btn"
+            onclick="copyIBAN()"
+        >
+            IBAN'ı Kopyala
+        </button>
+
+    </div>
+
+
+    <!-- SMART KART -->
+
+    <div class="section-title">
+        Dijital Kart
+    </div>
+
+
+    <div class="buttons">
+
+        <button
+            class="action"
+            onclick="downloadAllContacts()"
+        >
+
+            <div class="action-icon">
+                ↓
+            </div>
+
+            <div class="action-content">
+
+                <span class="action-label">
+                    Smart Kartı İndir
+                </span>
+
+                <span class="action-title">
+                    Veysel & Musa Aykul
+                </span>
+
+            </div>
+
+        </button>
+
+
+        <button
+            class="action"
+            onclick="shareCard()"
+        >
+
+            <div class="action-icon">
+                ↗
+            </div>
+
+            <div class="action-content">
+
+                <span class="action-label">
+                    Smart Kartı Paylaş
+                </span>
+
+                <span class="action-title">
+                    Kartı arkadaşlarınla paylaş
+                </span>
+
+            </div>
+
+        </button>
+
+    </div>
+
+
+    <footer class="footer">
+
+        <strong>VEYSEL HAFRİYAT</strong>
+
+        <br>
+
+        Profesyonel Hafriyat & Arazi Düzenleme
+
+        <br><br>
+
+        © 2026 Tüm hakları saklıdır.
+
+    </footer>
+
+</main>
+
+
+<!-- TOAST -->
+
+<div class="toast" id="toast">
+    Kopyalandı
+</div>
+
+
+<script>
+
+/* =========================================
+   IBAN KOPYALAMA
+========================================= */
+
+function copyIBAN() {
+
+    const iban =
+        "TR440001009010764335405001";
+
+    navigator.clipboard.writeText(iban)
+        .then(() => {
+
+            showToast("IBAN kopyalandı");
+
+        })
+        .catch(() => {
+
+            showToast("IBAN: " + iban);
+
+        });
+
+}
+
+
+/* =========================================
+   TOAST
+========================================= */
+
+function showToast(message) {
+
+    const toast =
+        document.getElementById("toast");
+
+    toast.textContent = message;
+
+    toast.classList.add("show");
+
+    setTimeout(() => {
+
+        toast.classList.remove("show");
+
+    }, 2200);
+
+}
+
+
+/* =========================================
+   VCARD
+========================================= */
+
+function downloadVCard(person) {
+
+    let firstName;
+    let lastName;
+    let phone;
+
+    if (person === "veysel") {
+
+        firstName = "Veysel";
+        lastName = "Aykul";
+        phone = "+905355795078";
+
+    } else {
+
+        firstName = "Musa";
+        lastName = "Aykul";
+        phone = "+905365916785";
+
+    }
+
+    const vcard =
+`BEGIN:VCARD
+VERSION:3.0
+N:${lastName};${firstName};;;
+FN:${firstName} ${lastName}
+ORG:Veysel Hafriyat
+TEL;TYPE=CELL:${phone}
+NOTE:Veysel Hafriyat
+END:VCARD`;
+
+    const blob =
+        new Blob([vcard], {
+            type: "text/vcard;charset=utf-8"
+        });
+
+    const url =
+        URL.createObjectURL(blob);
+
+    const link =
+        document.createElement("a");
+
+    link.href = url;
+
+    link.download =
+        `${firstName}-Aykul.vcf`;
+
+    document.body.appendChild(link);
+
+    link.click();
+
+    document.body.removeChild(link);
+
+    URL.revokeObjectURL(url);
+
+    showToast(`${firstName} Aykul rehbere ekleniyor`);
+}
+
+
+/* =========================================
+   İKİ KONTAĞI BİRDEN İNDİR
+========================================= */
+
+function downloadAllContacts() {
+
+    const vcard =
+`BEGIN:VCARD
+VERSION:3.0
+N:Aykul;Veysel;;;
+FN:Veysel Aykul
+ORG:Veysel Hafriyat
+TEL;TYPE=CELL:+905355795078
+END:VCARD
+
+BEGIN:VCARD
+VERSION:3.0
+N:Aykul;Musa;;;
+FN:Musa Aykul
+ORG:Veysel Hafriyat
+TEL;TYPE=CELL:+905365916785
+END:VCARD`;
+
+    const blob =
+        new Blob([vcard], {
+            type: "text/vcard;charset=utf-8"
+        });
+
+    const url =
+        URL.createObjectURL(blob);
+
+    const link =
+        document.createElement("a");
+
+    link.href = url;
+
+    link.download =
+        "Veysel-Hafriyat-Kisiler.vcf";
+
+    document.body.appendChild(link);
+
+    link.click();
+
+    document.body.removeChild(link);
+
+    URL.revokeObjectURL(url);
+
+    showToast("Smart kart indiriliyor");
+}
+
+
+/* =========================================
+   KARTI PAYLAŞ
+========================================= */
+
+async function shareCard() {
+
+    const shareData = {
+
+        title: "Veysel Hafriyat",
+
+        text:
+            "Veysel Hafriyat - Veysel Aykul & Musa Aykul",
+
+        url: window.location.href
+
+    };
+
+
+    if (
+        navigator.share &&
+        navigator.canShare &&
+        navigator.canShare(shareData)
+    ) {
+
+        try {
+
+            await navigator.share(shareData);
+
+        } catch (error) {
+
+            /* Kullanıcı paylaşımı kapattı */
+
+        }
+
+    } else {
+
+        try {
+
+            await navigator.clipboard.writeText(
+                window.location.href
+            );
+
+            showToast("Kart bağlantısı kopyalandı");
+
+        } catch (error) {
+
+            showToast("Kart bağlantısı: " + window.location.href);
+
+        }
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
